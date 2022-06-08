@@ -1,0 +1,139 @@
+.product {
+  display: flex;
+  gap: 100px;
+  padding: 80px 100px 178px;
+  flex-grow: 1;
+
+  &__ {
+    &gallery-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    &thumbnails {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 40px;
+      width: 80px;
+    }
+
+    &thumbnail {
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    &image {
+      width: 610px;
+      height: auto;
+    }
+
+    &info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &brand {
+      font-size: 30px;
+      font-weight: $semi-bold;
+      line-height: 27px;
+    }
+
+    &name {
+      font-size: 30px;
+      font-weight: $regular;
+      line-height: 27px;
+      margin: 0 0 27px;
+    }
+
+    &sizes,
+    &colors {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0 0 8px;
+    }
+
+    &option-title {
+      font-family: 'Roboto Condensed';
+      font-weight: $bold;
+      text-transform: uppercase;
+      line-height: 18px;
+    }
+
+    &option-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    &sizes-wrapper {
+      gap: 12px;
+    }
+
+    &size {
+      font-family: 'Source Sans Pro';
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 63px;
+      height: 45px;
+      border: 1px solid $bg-tertiary;
+      cursor: pointer;
+
+      &_active {
+        color: $c-tertiary;
+        background: $bg-tertiary;
+      }
+    }
+
+    &color {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+
+      &_active {
+        outline: 1px $bg-primary solid;
+        box-shadow: 0px 0px 0px 2px $bg-accents;
+      }
+    }
+
+    &price-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    &price {
+      font-size: 24px;
+      font-weight: $bold;
+      line-height: 46px;
+    }
+
+    &buy {
+      font-size: 16px;
+      font-weight: $semi-bold;
+      color: $c-tertiary;
+      background: $bg-accents;
+      width: 292px;
+      padding: 16px 32px;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    &description {
+      font-family: 'Roboto';
+      font-size: 16px;
+      width: 292px;
+      line-height: 160%;
+      margin: 24px 0 0;
+    }
+  }
+}

@@ -1,9 +1,14 @@
+import Category from 'components/Category';
 import { Component } from 'react';
 
-class Category extends Component {
+class CategoryPage extends Component {
   render() {
-    return 'category';
+    return (
+      <div className="app__page page page_category">
+        <Category />
+      </div>
+    );
   }
 }
 
-export default Category;
+export default CategoryPage;

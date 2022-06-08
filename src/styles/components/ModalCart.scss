@@ -1,0 +1,160 @@
+.modal-cart {
+  position: absolute;
+  top: 0;
+  right: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: $bg-primary;
+  padding: 32px 16px;
+
+  &__ {
+    &title-wrapper {
+      font-size: 16px;
+      line-height: 160%;
+    }
+
+    &title {
+      font-weight: $bold;
+    }
+
+    &container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &items {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-height: 50vh;
+      overflow: auto;
+    }
+
+    &total-cost-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8px;
+      font-size: 16px;
+    }
+
+    &total-cost-label {
+      font-family: 'Roboto';
+      font-weight: $medium;
+      line-height: 18px;
+    }
+
+    &total-cost {
+      font-weight: $bold;
+      line-height: 28px;
+    }
+
+    &buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: $semi-bold;
+      text-transform: uppercase;
+      line-height: 43px;
+    }
+
+    &open-cart {
+      width: 140px;
+      height: 43px;
+      border: 1px solid $bg-tertiary;
+      text-align: center;
+      text-decoration: none !important;
+      user-select: none;
+    }
+
+    &checkout {
+      color: $c-tertiary;
+      background: $bg-accents;
+      width: 140px;
+      height: 43px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  .cart__item {
+    padding: 0;
+    gap: 8px;
+    border: none;
+
+    &- {
+      &info {
+        gap: 0;
+        flex-grow: 0;
+        padding-right: 16px;
+      }
+
+      &brand {
+        font-size: 16px;
+        font-weight: $light;
+        line-height: 160%;
+      }
+
+      &name {
+        font-size: 16px;
+        font-weight: $light;
+        line-height: 160%;
+      }
+
+      &price {
+        font-size: 16px;
+        font-weight: $medium;
+        padding: 4px 0 0;
+        line-height: 160%;
+      }
+
+      &option-wrapper {
+        margin-top: 8px;
+      }
+
+      &option-title {
+        font-family: 'Raleway';
+        font-size: 14px;
+        font-weight: $regular;
+        line-height: 16px;
+        text-transform: none;
+      }
+
+      &size {
+        font-size: 14px;
+        height: 24px;
+        width: 24px;
+        line-height: 22px;
+      }
+
+      &color {
+        height: 16px;
+        width: 16px;
+      }
+
+      &quantity {
+        font-size: 16px;
+      }
+
+      &quantity-button {
+        font-size: 20px;
+        width: 24px;
+        height: 24px;
+        line-height: 22px;
+      }
+
+      &image {
+        width: auto;
+        flex-grow: 1;
+      }
+
+      &image-controls {
+        display: none;
+      }
+    }
+  }
+}

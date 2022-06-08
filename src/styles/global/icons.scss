@@ -1,0 +1,40 @@
+@import 'styles/variables';
+
+@mixin i($c) {
+  .i {
+    fill: $c;
+
+    &_stroke {
+      stroke: $c;
+    }
+  }
+}
+
+._interactive:hover {
+  @include i($c-accents);
+}
+
+._prominent {
+  @include i($c-tertiary);
+
+  ._interactive:hover {
+    @include i($c-secondary);
+  }
+}
+
+._bright {
+  @include i($c-secondary);
+}
+
+.i {
+  display: block;
+  transition-property: fill, stroke;
+  transition-duration: 0.1s;
+  user-select: none;
+  fill: $c-primary;
+
+  &_stroke {
+    fill: none !important;
+    stroke: $c-primary;
+  }
+}

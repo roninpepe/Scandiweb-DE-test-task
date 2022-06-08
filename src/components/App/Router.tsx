@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 import { history } from 'utils/history';
 import PageLayout from 'pages/PageLayout';
-import Category from 'pages/Category';
-import PDP from 'pages/PDP';
-import Cart from 'pages/Cart';
+import CategoryPage from 'pages/Category';
+import ProductPage from 'pages/Product';
+import CartPage from 'pages/Cart';
 
 class AppRouter extends Component {
   render() {
@@ -16,10 +16,10 @@ class AppRouter extends Component {
       <HistoryRouter history={history}>
         <Routes>
           <Route path="/" element={<PageLayout />}>
-            <Route index element={<Category />} />
-            <Route path="category" element={<Category />} />
-            <Route path="itemy/:pid" element={<PDP />} />
-            <Route path="cart" element={<Cart />} />
+            <Route index element={<CategoryPage />} />
+            <Route path="category/:cat" element={<CategoryPage />} />
+            <Route path="item/:pid" element={<ProductPage />} />
+            <Route path="cart" element={<CartPage />} />
           </Route>
         </Routes>
       </HistoryRouter>

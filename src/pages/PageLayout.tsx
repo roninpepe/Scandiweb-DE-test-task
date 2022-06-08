@@ -1,12 +1,18 @@
 import Header from 'components/Header';
-import { FC } from 'react';
+import ModalWindowLayout from 'components/Modal/WindowLayout';
+import { Component } from 'react';
 import { Outlet } from 'react-router-dom';
 
-const PageLayout: FC = () => (
-  <>
-    <Header />
-    <Outlet />
-  </>
-);
+class PageLayout extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <Outlet />
+        <ModalWindowLayout />
+      </>
+    );
+  }
+}
 
 export default PageLayout;

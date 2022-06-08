@@ -1,0 +1,44 @@
+$c-primary: #1d1f22;
+$c-secondary: #43464e;
+$c-tertiary: #fff;
+$c-accents: #5ece7b;
+$bg-primary: #fff;
+$bg-secondary: #1d1f22;
+$bg-tertiary: #000;
+$bg-accents: #5ece7b;
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+$screen-l: 1024px;
+$screen-s: 460px;
+
+@mixin circle($d) {
+  border-radius: 50%;
+  height: $d;
+  width: $d;
+}
+
+@mixin linkHoveringDecoration($class) {
+  &:hover {
+    text-decoration: none;
+
+    #{$class} {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin l {
+  @media screen and (max-width: $screen-l) {
+    @content;
+  }
+}
+@mixin s {
+  @media screen and (max-width: $screen-s) {
+    @content;
+  }
+}

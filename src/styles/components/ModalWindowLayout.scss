@@ -1,0 +1,16 @@
+.modal-window-layout {
+  background: rgba(57, 55, 72, 0.22);
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &__modal-remover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

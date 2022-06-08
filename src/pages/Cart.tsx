@@ -1,9 +1,14 @@
+import Cart from 'components/Cart';
 import { Component } from 'react';
 
-class Cart extends Component {
+class CartPage extends Component {
   render() {
-    return 'Cart';
+    return (
+      <div className="app__page page page_cart">
+        <Cart />
+      </div>
+    );
   }
 }
 
-export default Cart;
+export default CartPage;

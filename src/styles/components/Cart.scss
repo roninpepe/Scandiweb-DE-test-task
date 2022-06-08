@@ -1,0 +1,200 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 80px 100px 274px;
+  flex-grow: 1;
+
+  &__ {
+    &title {
+      font-size: 32px;
+      font-weight: $bold;
+      line-height: 40px;
+      padding: 0 0 23px;
+      text-transform: uppercase;
+    }
+
+    &items {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    &item {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #e5e5e5;
+
+      &- {
+        &info {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          flex-grow: 1;
+        }
+
+        &brand {
+          font-size: 30px;
+          font-weight: $semi-bold;
+          line-height: 27px;
+        }
+
+        &name {
+          font-size: 30px;
+          line-height: 27px;
+        }
+
+        &price {
+          font-size: 24px;
+          font-weight: $bold;
+          padding: 4px 0;
+          line-height: 24px;
+        }
+
+        &option-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+        }
+
+        &option-title {
+          font-family: 'Roboto Condensed';
+          font-weight: $bold;
+          line-height: 18px;
+          text-transform: uppercase;
+        }
+
+        &sizes,
+        &colors {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        &size {
+          font-family: 'Source Sans Pro';
+          font-size: 16px;
+          width: 63px;
+          height: 45px;
+          line-height: 45px;
+          text-align: center;
+          border: 1px solid $bg-tertiary;
+          user-select: none;
+
+          &_active {
+            background: $bg-tertiary;
+            color: $c-tertiary;
+          }
+        }
+
+        &color {
+          width: 32px;
+          height: 32px;
+
+          &_active {
+            outline: 1px $bg-primary solid;
+            box-shadow: 0px 0px 0px 2px $bg-accents;
+          }
+        }
+
+        &quantity-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &quantity {
+          font-size: 24px;
+          font-weight: $medium;
+          line-height: 160%;
+        }
+
+        &quantity-button {
+          font-size: 30px;
+          font-weight: $light;
+          width: 45px;
+          height: 45px;
+          line-height: 42px;
+          text-align: center;
+          border: 1px solid $bg-secondary;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        &image {
+          display: flex;
+          justify-content: flex-end;
+          width: 200px;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &image-controls {
+          display: flex;
+          align-items: flex-end;
+          gap: 8px;
+          padding: 16px;
+        }
+
+        &image-controls-button {
+          font-size: 21px;
+          color: $c-tertiary;
+          background: rgba(0, 0, 0, 0.73);
+          height: 24px;
+          width: 24px;
+          line-height: 21px;
+          text-align: center;
+          cursor: pointer;
+          user-select: none;
+        }
+      }
+    }
+
+    &form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &info {
+      display: flex;
+      gap: 10px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &info-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &total {
+      font-weight: $medium;
+    }
+
+    &info-values {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-weight: $bold;
+    }
+
+    &order {
+      font-size: 14px;
+      font-weight: $semi-bold;
+      width: 279px;
+      height: 43px;
+      line-height: 43px;
+      background: $bg-accents;
+      color: $c-tertiary;
+      text-transform: uppercase;
+      padding: 0 32px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
