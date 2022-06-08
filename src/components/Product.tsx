@@ -1,5 +1,5 @@
 import { AppContext } from 'context/AppContext';
-import { Component, Context, ContextType } from 'react';
+import { Component, Context, ContextType, ReactNode } from 'react';
 import {
   EDLEvent,
   ESize,
@@ -13,6 +13,7 @@ import {
 
 import mock from 'mocks/categoryData.json';
 import { NO_IMAGE_THUMBNAIL } from 'configs/defaultVariables';
+import { addDataLayerItem } from 'utils/dataLayer';
 
 const data = mock.items as ICatalogItem[];
 
@@ -120,30 +121,32 @@ class Product extends Component<IElementProps, IProductState> {
   });
 
   clickEvent = () => {
-    console.log(this.getEcommerceAddToCartItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceAddToCartItem());
     this.context.addToCart(this.item, this.state);
   };
 
   componentDidMount() {
-    console.log(this.getEcommerceImpressionsItem()); // TODO: dataLayer support
-    console.log(this.getEcommerceProductDetailItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceImpressionsItem());
+    addDataLayerItem(this.getEcommerceProductDetailItem());
   }
 
-  render() {
+  render(): ReactNode {
     return (
       <div className="page__product product">
         <div className="product__gallery-wrapper">
           <div className="product__thumbnails">
-            {this.item.images.map((item, i) => (
-              <div
-                className="product__thumbnail"
-                key={i}
-                style={{ backgroundImage: `url(${item})` }}
-                onClick={() => {
-                  this.changeImage(item);
-                }}
-              ></div>
-            ))}
+            {this.item.images.map(
+              (item, i): ReactNode => (
+                <div
+                  className="product__thumbnail"
+                  key={i}
+                  style={{ backgroundImage: `url(${item})` }}
+                  onClick={() => {
+                    this.changeImage(item);
+                  }}
+                ></div>
+              )
+            )}
           </div>
           <img
             src={this.state.currentImage}
@@ -158,19 +161,21 @@ class Product extends Component<IElementProps, IProductState> {
             <div className="product__sizes">
               <div className="product__option-title">Size:</div>
               <div className="product__option-wrapper product__sizes-wrapper">
-                {this.item.options.size.map((item, i) => (
-                  <div
-                    className={`product__size${
-                      this.state.size === item ? ' product__size_active' : ''
-                    }`}
-                    key={i}
-                    onClick={() => {
-                      this.setSize(item);
-                    }}
-                  >
-                    {item}
-                  </div>
-                ))}
+                {this.item.options.size.map(
+                  (item, i): ReactNode => (
+                    <div
+                      className={`product__size${
+                        this.state.size === item ? ' product__size_active' : ''
+                      }`}
+                      key={i}
+                      onClick={(): void => {
+                        this.setSize(item);
+                      }}
+                    >
+                      {item}
+                    </div>
+                  )
+                )}
               </div>
             </div>
           ) : (

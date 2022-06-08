@@ -8,6 +8,7 @@ import {
 import { ReactComponent as Cart } from 'assets/icons/cart.svg';
 import { AppContext } from 'context/AppContext';
 import { NO_IMAGE_THUMBNAIL } from 'configs/defaultVariables';
+import { addDataLayerItem } from 'utils/dataLayer';
 
 class CategoryItem extends Component<ICatalogItemProps> {
   static contextType: Context<IAppContext> = AppContext;
@@ -84,16 +85,16 @@ class CategoryItem extends Component<ICatalogItemProps> {
   });
 
   clickEvent = (): void => {
-    console.log(this.getEcommerceProductClickItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceProductClickItem());
     this.context.addToCart(this.props.item, undefined);
   };
 
   cartClickEvent = (): void => {
-    console.log(this.getEcommerceAddToCartItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceAddToCartItem());
   };
 
   componentDidMount(): void {
-    console.log(this.getEcommerceImpressionsItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceImpressionsItem());
   }
 
   render(): ReactNode {

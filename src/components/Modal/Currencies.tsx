@@ -1,5 +1,5 @@
 import { AppContext } from 'context/AppContext';
-import { Component, Context, ContextType } from 'react';
+import { Component, Context, ContextType, ReactNode } from 'react';
 import {
   ECurrency,
   ECurrencySymbol,
@@ -12,28 +12,16 @@ class ModalCurrencies extends Component {
 
   context: ContextType<typeof AppContext> = this.context;
 
-  removeModal = (): void => {
-    if (this.context.modal) this.context.setModalState(undefined);
-  };
-
-  /* componentDidMount() {
-    window.addEventListener('click', this.removeModal);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this.removeModal);
-  } */
-
-  render() {
+  render(): ReactNode {
     return (
       <div className="app__modal modal modal-currencies">
-        {Object.keys(ECurrencySymbol).map((key: string, i) => {
+        {Object.keys(ECurrencySymbol).map((key: string, i): ReactNode => {
           const currencyCode: UCurrency = key as UCurrency;
           return (
             <div
               className="modal-currencies__item"
               key={i}
-              onClick={() => {
+              onClick={(): void => {
                 this.context.changeCurrency({
                   currencyCode,
                   currencySymbol: ECurrencySymbol[currencyCode],

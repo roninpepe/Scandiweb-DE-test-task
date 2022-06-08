@@ -1,10 +1,8 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { IElementProps } from 'types/scandiweb-de-test-task';
 
 class HeaderCategory extends Component<IElementProps> {
-  componentDidUpdate() {}
-
-  render() {
+  render(): ReactNode {
     return (
       <a
         href={`../category/${this.props.children}`}

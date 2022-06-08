@@ -1,6 +1,6 @@
 import { NO_IMAGE_THUMBNAIL } from 'configs/defaultVariables';
 import { AppContext } from 'context/AppContext';
-import { Component, Context, ContextType } from 'react';
+import { Component, Context, ContextType, ReactNode } from 'react';
 import {
   EDLEvent,
   ESize,
@@ -9,6 +9,7 @@ import {
   ICartItemState,
   IDLItem,
 } from 'types/scandiweb-de-test-task.d';
+import { addDataLayerItem } from 'utils/dataLayer';
 
 class CartItem extends Component<ICartItemProps, ICartItemState> {
   static contextType: Context<IAppContext> = AppContext;
@@ -142,21 +143,21 @@ class CartItem extends Component<ICartItemProps, ICartItemState> {
     },
   });
 
-  addItemClickEvent = () => {
-    console.log(this.getEcommerceAddToCartItem()); // TODO: dataLayer support
+  addItemClickEvent = (): void => {
+    addDataLayerItem(this.getEcommerceAddToCartItem());
     this.context.addToCart(this.props.item, this.props.item.selectedOptions);
   };
 
-  removeItemClickEvent = () => {
-    console.log(this.getEcommerceRemoveFromCartItem()); // TODO: dataLayer support
+  removeItemClickEvent = (): void => {
+    addDataLayerItem(this.getEcommerceRemoveFromCartItem());
     this.context.removeFromCart(this.props.item);
   };
 
-  componentDidMount() {
-    console.log(this.getEcommerceImpressionsItem()); // TODO: dataLayer support
+  componentDidMount(): void {
+    addDataLayerItem(this.getEcommerceImpressionsItem());
   }
 
-  render() {
+  render(): ReactNode {
     return (
       <div className="cart__item">
         <div className="cart__item-info">
@@ -237,7 +238,7 @@ class CartItem extends Component<ICartItemProps, ICartItemState> {
           <div className="cart__item-image-controls">
             <div
               className="cart__item-image-controls-button"
-              onClick={() => {
+              onClick={(): void => {
                 this.setState({
                   currentImageIndex:
                     this.state.currentImageIndex < 1
@@ -248,7 +249,7 @@ class CartItem extends Component<ICartItemProps, ICartItemState> {
             >{`<`}</div>
             <div
               className="cart__item-image-controls-button"
-              onClick={() => {
+              onClick={(): void => {
                 this.setState({
                   currentImageIndex:
                     this.state.currentImageIndex <

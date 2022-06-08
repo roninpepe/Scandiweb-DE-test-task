@@ -1,5 +1,5 @@
 import { AppContext } from 'context/AppContext';
-import { Component, Context, ContextType } from 'react';
+import { Component, Context, ContextType, ReactNode } from 'react';
 import { IAppContext } from 'types/scandiweb-de-test-task';
 
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow-up.svg';
@@ -19,7 +19,7 @@ class HeaderCurrency extends Component {
     }
   };
 
-  render() {
+  render(): ReactNode {
     return (
       <div className="header__currency" onClick={this.clickEvent}>
         {this.context.settings.currency.currencySymbol}

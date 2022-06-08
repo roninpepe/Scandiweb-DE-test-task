@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { ICatalogItem, IElementProps } from 'types/scandiweb-de-test-task';
 import CategoryItem from 'components/Category/Item';
 
@@ -13,14 +13,14 @@ class Category extends Component<IElementProps> {
     (item) => item.category === this.category
   );
 
-  render() {
+  render(): ReactNode {
     this.items.length = 6;
 
     return (
       <div className="page__category category">
         <div className="category__name">{this.category}</div>
         <div className="category__cont">
-          {this.items.map((item, i) => {
+          {this.items.map((item, i): ReactNode => {
             return <CategoryItem position={i + 1} item={item} key={`${i}`} />;
           })}
         </div>

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import {
   unstable_HistoryRouter as HistoryRouter,
   Route,
@@ -11,7 +11,7 @@ import ProductPage from 'pages/Product';
 import CartPage from 'pages/Cart';
 
 class AppRouter extends Component {
-  render() {
+  render(): ReactNode {
     return (
       <HistoryRouter history={history}>
         <Routes>

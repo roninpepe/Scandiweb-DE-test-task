@@ -6,6 +6,7 @@ import {
   IAppContext,
   IDLItem,
 } from 'types/scandiweb-de-test-task.d';
+import { addDataLayerItem } from 'utils/dataLayer';
 import CartItem from './Cart/Item';
 
 class Cart extends Component {
@@ -67,8 +68,8 @@ class Cart extends Component {
     },
   });
 
-  checkoutClickEvent = () => {
-    console.log(this.getEcommerceCheckoutItem()); // TODO: dataLayer support
+  checkoutClickEvent = (): void => {
+    addDataLayerItem(this.getEcommerceCheckoutItem());
   };
 
   render(): ReactNode {
@@ -76,9 +77,11 @@ class Cart extends Component {
       <div className="page__cart cart">
         <div className="cart__title">Cart</div>
         <div className="cart__items">
-          {this.context.cart.map((v, i) => (
-            <CartItem key={`${i}`} position={i} item={v} list={this.list} />
-          ))}
+          {this.context.cart.map(
+            (v, i): ReactNode => (
+              <CartItem key={`${i}`} position={i} item={v} list={this.list} />
+            )
+          )}
         </div>
         <div className="cart__form">
           <div className="cart__info">

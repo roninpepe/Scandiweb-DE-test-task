@@ -7,6 +7,7 @@ import {
   IAppContext,
   IDLItem,
 } from 'types/scandiweb-de-test-task.d';
+import { addDataLayerItem } from 'utils/dataLayer';
 
 class ModalCart extends Component {
   static contextType: Context<IAppContext> = AppContext;
@@ -56,15 +57,15 @@ class ModalCart extends Component {
   });
 
   checkoutClickEvent = () => {
-    console.log(this.getEcommerceCheckoutItem()); // TODO: dataLayer support
+    addDataLayerItem(this.getEcommerceCheckoutItem());
   };
 
   render(): ReactNode {
-    const totalItems = this.context.cart.reduce(
+    const totalItems: number = this.context.cart.reduce(
       (accumulator, item) => item.amount + accumulator,
       0
     );
-    const totalCost =
+    const totalCost: number =
       this.context.cart.reduce(
         (accumulator, item) => accumulator + item.amount * item.price,
         0
